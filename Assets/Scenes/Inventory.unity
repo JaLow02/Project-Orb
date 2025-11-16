@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 1284146557}
   - component: {fileID: 1284146556}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2401,7 +2401,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7380996509442759080, guid: 244869f7102f2eb49abeb29c7cd36dc9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

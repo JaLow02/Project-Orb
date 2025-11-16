@@ -1196,7 +1196,7 @@ GameObject:
   - component: {fileID: 1105311742}
   - component: {fileID: 1105311741}
   - component: {fileID: 1105311740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172779381870798204, guid: 87fc667096072194a962ff7db43477d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 172779381870798204, guid: 87fc667096072194a962ff7db43477d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1439,16 +1439,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1759153798303792087, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759153798303792087, guid: 87fc667096072194a962ff7db43477d2, type: 3}
       propertyPath: movementSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759153798303792087, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 1812616545475199954, guid: 87fc667096072194a962ff7db43477d2, type: 3}
       propertyPath: m_Name
       value: Player Character
       objectReference: {fileID: 0}
     - target: {fileID: 4842819022232421250, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842819022232421250, guid: 87fc667096072194a962ff7db43477d2, type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842819022232421250, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042114735984613, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
