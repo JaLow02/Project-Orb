@@ -4,7 +4,9 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] Transform Target;
+    Transform Target;
+    GameObject playerObject;
+
     [SerializeField] float UpdateSpeed = 0.1f;
 
     private NavMeshAgent agent;
@@ -16,6 +18,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            Target = playerObject.transform;
+        }
+
         StartCoroutine(FollowTarget());
     }
 
@@ -25,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
 
         while (true)
         {
-            agent.SetDestination(Target.transform.position);
+            agent.SetDestination(Target.position);
             yield return Wait;
         }    
     }
