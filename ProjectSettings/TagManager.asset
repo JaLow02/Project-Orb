@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Item1
+  - Item2
+  - Item3
+  - InventoryObjects
   layers:
   - Default
   - TransparentFX
@@ -13,8 +17,8 @@ TagManager:
   - UI
   - Enemy
   - Placement
-  - 
-  - 
+  - InventoryObjects
+  - Ground
   - 
   - 
   - 
