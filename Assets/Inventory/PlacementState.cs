@@ -1,4 +1,5 @@
 using NUnit.Framework.Interfaces;
+using System;
 using UnityEngine;
 
 public class PlacementState : IBuildingState
@@ -10,6 +11,8 @@ public class PlacementState : IBuildingState
     ObjectsDatabaseSO database;
     GridData itemData;
     ObjectPlacer objectPlacer;
+
+    public event Action<int> OnObjectPlaced;
 
     public PlacementState(
         int iD,
@@ -55,6 +58,9 @@ public class PlacementState : IBuildingState
             index);
 
         previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
+
+        OnObjectPlaced?.Invoke(ID);
+        Debug.Log("Object placed");
     }
 
     private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)

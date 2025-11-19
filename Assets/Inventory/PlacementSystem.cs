@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -9,42 +10,78 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] Grid grid;
 
     [SerializeField] private ObjectsDatabaseSO database;
-
     [SerializeField] private GameObject gridVisualization;
 
     private GridData itemData;
-
     [SerializeField] private PreviewSystem preview;
-
     private Vector3Int lastDetectedPosition = Vector3Int.zero;
-
     [SerializeField] private ObjectPlacer objectPlacer;
 
     IBuildingState buildingState;
+
+    [SerializeField] private List<Button> placementButtons;
+    private Dictionary<int, bool> objectPlaced = new Dictionary<int, bool>();
 
     private void Start()
     {
         StopPlacement();
         itemData = new();
+
+        foreach (var obj in database.objectsData)
+        {
+            objectPlaced[obj.ID] = false;
+        }
     }
 
     public void StartPlacement(int ID)
     {
         StopPlacement();
-
         gridVisualization.SetActive(true);
-        buildingState = new PlacementState(ID, grid, preview, database, itemData, objectPlacer);
+
+        var state = new PlacementState(ID, grid, preview, database, itemData, objectPlacer);
+        state.OnObjectPlaced += HandleObjectPlaced;
+        buildingState = state;
+
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnClicked += StopPlacement;
+    }
+
+    private void HandleObjectPlaced(int id)
+    {
+        Debug.Log("Button disabled");
+
+        objectPlaced[id] = true;
+        DisableButtonForID(id);
+    }
+
+    private void DisableButtonForID(int id)
+    {
+        if (id >= 0 && id <placementButtons.Count)
+        {
+            placementButtons[id].interactable = false;
+        }
     }
 
     public void StartRemoving()
     {
         StopPlacement();
         gridVisualization.SetActive(true);
-        buildingState = new RemovingState(grid, preview, itemData, objectPlacer);
+
+        var state = new RemovingState(grid, preview, itemData, objectPlacer);
+        state.OnObjectRemoved += HandleObjectRemoved;
+        buildingState = state;
+
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnClicked += StopPlacement;
+    }
+
+    private void HandleObjectRemoved(int id)
+    {
+        if (id >= 0 && id < placementButtons.Count)
+        {
+            placementButtons[id].interactable = true;
+        }
+        objectPlaced[id] = false;
     }
 
     private void PlaceStructure()
@@ -56,11 +93,6 @@ public class PlacementSystem : MonoBehaviour
 
         buildingState.OnAction(gridPosition);
     }
-
-    /*private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
-    {
-        return itemData.CanPlaceObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
-    }*/
 
     private void StopPlacement()
     {

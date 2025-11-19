@@ -60,6 +60,15 @@ public class GridData
         }
         return returnVal;
     }
+
+    internal int GetObjectID(Vector3Int gridPosition)
+    {
+        if (placedObjects.ContainsKey(gridPosition) == false)
+        {
+            return -1;
+        }
+        return placedObjects[gridPosition].ID;
+    }
 }
 
 public class PlacementData

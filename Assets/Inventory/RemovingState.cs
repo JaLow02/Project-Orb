@@ -9,6 +9,8 @@ public class RemovingState : IBuildingState
     GridData itemData;
     ObjectPlacer objectPlacer;
 
+    public event Action<int> OnObjectRemoved;
+
     public RemovingState(Grid grid, PreviewSystem previewSystem, GridData itemData, ObjectPlacer objectPlacer)
     {
         this.grid = grid;
@@ -42,8 +44,12 @@ public class RemovingState : IBuildingState
             gameObjectIndex = selectedData.GetRepresentationIndex(gridPosition);
             if(gameObjectIndex == -1) { return; }
 
+            int removedID = selectedData.GetObjectID(gridPosition);
+
             selectedData.RemoveObjectAt(gridPosition);
             objectPlacer.RemoveObjectAt(gameObjectIndex);
+
+            OnObjectRemoved?.Invoke(removedID);
         }
         Vector3 cellPosition = grid.CellToWorld(gridPosition);
         previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BowItem : MonoBehaviour
 {
-    private void OnAwake()
+    private void OnEnable()
     {
         ObjectsInInventory.bowEquiped = true;
 
@@ -12,7 +12,7 @@ public class BowItem : MonoBehaviour
             "Jump Boost: " + ObjectsInInventory.jumpBoost);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         //ObjectsInInventory.bowEquiped = false;
 
