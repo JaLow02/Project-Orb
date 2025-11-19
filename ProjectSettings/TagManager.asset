@@ -8,6 +8,7 @@ TagManager:
   - Item2
   - Item3
   - InventoryObjects
+  - Enemy
   layers:
   - Default
   - TransparentFX

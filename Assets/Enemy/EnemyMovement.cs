@@ -6,9 +6,10 @@ public class EnemyMovement : MonoBehaviour
 {
     Transform Target;
     GameObject playerObject;
+    
 
     [SerializeField] float UpdateSpeed = 0.1f;
-
+    [SerializeField] float health = 50f;
     private NavMeshAgent agent;
 
     private void Awake()
@@ -35,6 +36,14 @@ public class EnemyMovement : MonoBehaviour
         {
             agent.SetDestination(Target.position);
             yield return Wait;
-        }    
+        }
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
