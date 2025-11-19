@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4138014972750165567}
   - component: {fileID: 1969754918460340488}
-  - component: {fileID: 5695959479791923393}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -49,16 +48,3 @@ MonoBehaviour:
   spawnTrigger: {fileID: 0}
   poolSize: 5
   spawnTimer: 1
---- !u!114 &5695959479791923393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4316170125210892909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c90deb02c16ad724884aa3c3eef98739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateSpeed: 0.1
