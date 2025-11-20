@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7873380316526817108}
   - component: {fileID: 887262262269141963}
   - component: {fileID: 4724844825376205920}
-  - component: {fileID: -6530649474339677572}
+  - component: {fileID: 541883296573909356}
   m_Layer: 8
   m_Name: Item 1x1
   m_TagString: InventoryObjects
@@ -169,7 +169,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-6530649474339677572
+--- !u!114 &541883296573909356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,8 +178,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8669505525782953701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e4b1d7904d085a4abcb8fd915939926, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ebb7cea8392ba948a960c05fea9cb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoost: 0
-  jumpBoost: 0
+  speedBoost: 1
+  jumpBoost: 1
+  isSword: 0
+  isBow: 0

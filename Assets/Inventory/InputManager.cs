@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,7 +11,10 @@ public class InputManager : MonoBehaviour
 
     Vector3 lastPosition;
 
-    public event Action OnClicked, OnExit;
+    public event Action OnClicked;
+    //, OnExit
+
+    bool isSwitching = false;
 
     private void Update()
     {
@@ -17,11 +22,33 @@ public class InputManager : MonoBehaviour
         {
             OnClicked?.Invoke();
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !isSwitching)
         {
-            OnExit?.Invoke();
+            //OnExit?.Invoke();
+            //SceneManager.UnloadSceneAsync("Inventory");
+            //SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
+            //StartCoroutine(SwitchToMainScene());
         }
     }
+
+    /*IEnumerator SwitchToMainScene()
+    {
+        isSwitching = true;
+
+        // 1. Neue Szene additive laden
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync("MainScene", LoadSceneMode.Additive);
+        yield return loadOp;
+
+        // 2. Neue Szene aktiv setzen
+        Scene inventoryScene = SceneManager.GetSceneByName("MainScene");
+        SceneManager.SetActiveScene(inventoryScene);
+
+        // 3. Alte Szene entladen
+        AsyncOperation unloadOp = SceneManager.UnloadSceneAsync("Inventory");
+        yield return unloadOp;
+
+        isSwitching = false;
+    }*/
 
     public bool IsPointerOverUI()
         => EventSystem.current.IsPointerOverGameObject();

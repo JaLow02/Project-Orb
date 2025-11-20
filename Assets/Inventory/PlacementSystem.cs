@@ -27,6 +27,10 @@ public class PlacementSystem : MonoBehaviour
         StopPlacement();
         itemData = new();
 
+        ObjectsInInventory.SetCount(0, 1);
+        ObjectsInInventory.SetCount(1, 1);
+        ObjectsInInventory.SetCount(2, 3);
+
         foreach (var obj in database.objectsData)
         {
             objectPlaced[obj.ID] = false;
@@ -35,11 +39,18 @@ public class PlacementSystem : MonoBehaviour
 
     public void StartPlacement(int ID)
     {
+        if(ObjectsInInventory.GetCount(ID) <= 0)
+        {
+            Debug.Log("No Objects of this type availeable!");
+            return;
+        }
+
         StopPlacement();
         gridVisualization.SetActive(true);
 
         var state = new PlacementState(ID, grid, preview, database, itemData, objectPlacer);
         state.OnObjectPlaced += HandleObjectPlaced;
+
         buildingState = state;
 
         inputManager.OnClicked += PlaceStructure;
@@ -48,19 +59,20 @@ public class PlacementSystem : MonoBehaviour
 
     private void HandleObjectPlaced(int id)
     {
-        Debug.Log("Button disabled");
+        ObjectsInInventory.Consume(id);
 
-        objectPlaced[id] = true;
-        DisableButtonForID(id);
-    }
+        var data = database.objectsData.Find(obj => obj.ID == id);
 
-    private void DisableButtonForID(int id)
-    {
-        if (id >= 0 && id <placementButtons.Count)
+        // BOOST ANWENDEN
+        ObjectsInInventory.AddBoost(data.speedBoost, data.jumpBoost);
+
+        // Button deaktivieren wenn Counter 0 ist
+        if (ObjectsInInventory.GetCount(id) <= 0)
         {
             placementButtons[id].interactable = false;
         }
     }
+
 
     public void StartRemoving()
     {
@@ -77,12 +89,17 @@ public class PlacementSystem : MonoBehaviour
 
     private void HandleObjectRemoved(int id)
     {
-        if (id >= 0 && id < placementButtons.Count)
-        {
-            placementButtons[id].interactable = true;
-        }
-        objectPlaced[id] = false;
+        ObjectsInInventory.AddBack(id);
+
+        var data = database.objectsData.Find(obj => obj.ID == id);
+
+        // BOOST ZURÜCKNEHMEN
+        ObjectsInInventory.RemoveBoost(data.speedBoost, data.jumpBoost);
+
+        // Button wieder aktivieren
+        placementButtons[id].interactable = true;
     }
+
 
     private void PlaceStructure()
     {

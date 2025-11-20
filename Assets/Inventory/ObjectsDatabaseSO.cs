@@ -18,4 +18,7 @@ public class ObjectData
     [field: SerializeField] public Vector2Int Size { get; private set; }
 
     [field: SerializeField] public GameObject Prefab { get; private set; }
+
+    [field: SerializeField] public int speedBoost;
+    [field: SerializeField] public int jumpBoost;
 }

@@ -74,13 +74,26 @@ public class GridData
 public class PlacementData
 {
     public List<Vector3Int> occupiedPositions;
+
     public int ID { get; private set; }
     public int PlacedObjectIndex { get; private set; }
 
-    public PlacementData(List<Vector3Int> occupiedPositions, int iD, int placedObjectIndex)
+    public int SpeedBoost { get; private set; }
+    public int JumpBoost { get; private set; }
+
+    public bool IsSword { get; private set; }
+    public bool IsBow { get; private set; }
+
+    public PlacementData(List<Vector3Int> occupiedPositions, int iD, int placedObjectIndex, int speedBoost = 0, int jumpBoost = 0, bool isSword = false, bool isBow = false)
     {
         this.occupiedPositions = occupiedPositions;
         ID = iD;
         PlacedObjectIndex = placedObjectIndex;
+
+        SpeedBoost = speedBoost;
+        JumpBoost = jumpBoost;
+
+        IsSword = isSword;
+        IsBow = isBow;
     }
 }
