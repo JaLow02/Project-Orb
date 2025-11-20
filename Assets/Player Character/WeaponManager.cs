@@ -21,4 +21,6 @@ public class WeaponManager : MonoBehaviour
     {
         Instantiate(garlic, transform.position, Quaternion.identity, transform);
     }
+    
+   
 }

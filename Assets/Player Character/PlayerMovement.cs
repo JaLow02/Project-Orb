@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
     public Vector3 movementDirection;
-
+    [SerializeField] float hp = 50;
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float fallMultiplier = 2f;
     [SerializeField] public LayerMask groundLayer;
@@ -52,5 +52,16 @@ public class PlayerMovement : MonoBehaviour
     void CheckGrounded()
     {
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            hp = hp - 5;
+            if (hp <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

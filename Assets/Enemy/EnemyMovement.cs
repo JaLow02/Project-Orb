@@ -43,7 +43,9 @@ public class EnemyMovement : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
+            XpManager.currentXP = XpManager.currentXP + 5;
             Destroy(gameObject);
         }
     }
+   
 }
