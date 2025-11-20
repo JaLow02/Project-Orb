@@ -12,7 +12,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (garlicActivated >= ObjectsInInventory.garlicAmount)
+        if (garlicActivated <= ObjectsInInventory.garlicAmount)
         {
             SpawnWeapon();
             ++ garlicActivated;
