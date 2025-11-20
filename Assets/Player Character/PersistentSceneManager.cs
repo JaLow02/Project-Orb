@@ -6,7 +6,7 @@ public class PersistentSceneManager : MonoBehaviour
 {
     public static PersistentSceneManager Instance;
 
-    private string sceneA = "MainScene";
+    private string sceneA = "Test Scene";
     private string sceneB = "Inventory";
 
     private string currentScene = "";
