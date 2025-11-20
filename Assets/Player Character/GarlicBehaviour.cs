@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class GarlicBehaviour : MonoBehaviour
 {
-    public float duration;
-    public float damage;
+    public float duration = 1;
+    public float damage = 1;
     void Start()
     {
         Destroy(gameObject, duration);
@@ -19,7 +19,7 @@ public class GarlicBehaviour : MonoBehaviour
         if(other.CompareTag("Enemy"))
         {
             EnemyMovement enemy = other.GetComponent<EnemyMovement>();
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage + ObjectsInInventory.totalDamageBoost);
         }
     }
 }

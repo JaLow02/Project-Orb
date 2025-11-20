@@ -3,6 +3,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public GameObject garlic;
+    private int garlicActivated = 1;
     void Start()
     {
 
@@ -11,9 +12,10 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && garlicActivated >= ObjectsInInventory.garlicAmount)
         {
             SpawnWeapon();
+            ++ garlicActivated;
         }
     }
 

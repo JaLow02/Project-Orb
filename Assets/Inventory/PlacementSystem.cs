@@ -27,9 +27,10 @@ public class PlacementSystem : MonoBehaviour
         StopPlacement();
         itemData = new();
 
-        ObjectsInInventory.SetCount(0, 1);
-        ObjectsInInventory.SetCount(1, 1);
-        ObjectsInInventory.SetCount(2, 3);
+        ObjectsInInventory.SetCount(0, 3);
+        ObjectsInInventory.SetCount(1, 2);
+        ObjectsInInventory.SetCount(2, 2);
+        ObjectsInInventory.SetCount(3, 2);
 
         foreach (var obj in database.objectsData)
         {
@@ -126,6 +127,11 @@ public class PlacementSystem : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Garlic: " + ObjectsInInventory.garlicAmount);
+        Debug.Log("Damage Boost: " + ObjectsInInventory.totalDamageBoost);
+        Debug.Log("Speed Boost: " + ObjectsInInventory.totalSpeedBoost);
+        Debug.Log("Jump Boost: " + ObjectsInInventory.totalJumpBoost);
+
         if (buildingState == null) { return; }
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);

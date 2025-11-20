@@ -36,6 +36,8 @@ public class ObjectPlacer : MonoBehaviour
 
         ObjectsInInventory.totalSpeedBoost += stats.speedBoost;
         ObjectsInInventory.totalJumpBoost += stats.jumpBoost;
+        ObjectsInInventory.garlicAmount += stats.garlicAmount;
+        ObjectsInInventory.totalDamageBoost += stats.damageBoost;
 
         if (stats.isSword) ObjectsInInventory.swordEquiped = true;
         if (stats.isBow) ObjectsInInventory.bowEquiped = true;

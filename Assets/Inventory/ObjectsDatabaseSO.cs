@@ -21,4 +21,7 @@ public class ObjectData
 
     [field: SerializeField] public int speedBoost;
     [field: SerializeField] public int jumpBoost;
+
+    [field: SerializeField] public int damageBoost;
+    [field: SerializeField] public int garlicAmount;
 }

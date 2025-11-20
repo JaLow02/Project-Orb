@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4724844825376205920}
   - component: {fileID: 541883296573909356}
   m_Layer: 8
-  m_Name: Item 1x1
+  m_Name: JumpItem
   m_TagString: InventoryObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebb7cea8392ba948a960c05fea9cb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoost: 1
+  speedBoost: 0
   jumpBoost: 1
   isSword: 0
   isBow: 0

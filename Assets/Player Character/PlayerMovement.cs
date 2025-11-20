@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         movementDirection.Normalize();
 
-        transform.position += movementDirection * movementSpeed * Time.deltaTime;
+        transform.position += movementDirection * (movementSpeed + ObjectsInInventory.totalSpeedBoost) * Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         rb.linearVelocity = new Vector3 (rb.linearVelocity.x, 0, rb.linearVelocity.z);
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * (jumpForce + ObjectsInInventory.totalJumpBoost), ForceMode.Impulse);
     }
 
     void CheckGrounded()

@@ -7,4 +7,7 @@ public class InventoryObject : MonoBehaviour
 
     public bool isSword;
     public bool isBow;
+
+    public int damageBoost;
+    public int garlicAmount;
 }

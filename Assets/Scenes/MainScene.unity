@@ -725,6 +725,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529829579}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &705504072 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8198503791924839508, guid: 3de5b1bb5352d0c4d9c9d35c135c0904, type: 3}
+  m_PrefabInstance: {fileID: 7291507326541144684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2046,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3812999633555312755, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 705504072}
+    - target: {fileID: 3812999633555312755, guid: 87fc667096072194a962ff7db43477d2, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4842819022232421250, guid: 87fc667096072194a962ff7db43477d2, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -2081,3 +2094,4 @@ SceneRoots:
   - {fileID: 3078664968722094115}
   - {fileID: 30519969}
   - {fileID: 813747500}
+  - {fileID: 1007816020}

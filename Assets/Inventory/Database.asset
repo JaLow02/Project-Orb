@@ -13,15 +13,35 @@ MonoBehaviour:
   m_Name: Database
   m_EditorClassIdentifier: 
   objectsData:
-  - <Name>k__BackingField: Item 1 x 2
+  - <Name>k__BackingField: Garlic
     <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 5333594086394959822, guid: 0442b83723c31ec4182f502fa7d9e774, type: 3}
+    speedBoost: 0
+    jumpBoost: 0
+    damageBoost: 0
+    garlicAmount: 1
+  - <Name>k__BackingField: DamageBoost
+    <ID>k__BackingField: 1
+    <Size>k__BackingField: {x: 1, y: 3}
+    <Prefab>k__BackingField: {fileID: 2789524030165958731, guid: 22c5834c1370d32409666811e7b7d602, type: 3}
+    speedBoost: 0
+    jumpBoost: 0
+    damageBoost: 1
+    garlicAmount: 0
+  - <Name>k__BackingField: Shoe
+    <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 1, y: 2}
     <Prefab>k__BackingField: {fileID: 3016482203639045251, guid: a45dfbc4a2040c34283712b2f6933997, type: 3}
-  - <Name>k__BackingField: Item 2 x 1
-    <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 2, y: 1}
-    <Prefab>k__BackingField: {fileID: 2250039773347209581, guid: f362f62d5e363394db5467d8df4bf240, type: 3}
-  - <Name>k__BackingField: Item 1 x 1
-    <ID>k__BackingField: 2
+    speedBoost: 1
+    jumpBoost: 0
+    damageBoost: 0
+    garlicAmount: 0
+  - <Name>k__BackingField: JumpItem
+    <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 8669505525782953701, guid: 8fbb8dd255adf9642afa7237896286d9, type: 3}
+    speedBoost: 0
+    jumpBoost: 1
+    damageBoost: 0
+    garlicAmount: 0

@@ -6,6 +6,8 @@ public static class ObjectsInInventory
 
     public static int totalSpeedBoost;
     public static int totalJumpBoost;
+    public static int totalDamageBoost;
+    public static int garlicAmount;
 
     public static bool swordEquiped;
     public static bool bowEquiped;
