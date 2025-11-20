@@ -17,15 +17,19 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void Start()
+    private void OnEnable()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
             Target = playerObject.transform;
+            StartCoroutine(FollowTarget());
         }
+    }
 
-        StartCoroutine(FollowTarget());
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private IEnumerator FollowTarget()

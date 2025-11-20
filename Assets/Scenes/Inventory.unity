@@ -2274,6 +2274,10 @@ MonoBehaviour:
   gridVisualization: {fileID: 1163933718}
   preview: {fileID: 1200552496}
   objectPlacer: {fileID: 1765696130}
+  placementButtons:
+  - {fileID: 1674953898}
+  - {fileID: 537226757}
+  - {fileID: 1571273647}
 --- !u!1 &2125753116
 GameObject:
   m_ObjectHideFlags: 0
