@@ -17,7 +17,7 @@ public class PersistentSceneManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);    // überlebt Szenenwechsel
+            DontDestroyOnLoad(gameObject);    // Ã¼berlebt Szenenwechsel
         }
         else
         {
@@ -78,7 +78,7 @@ public class PersistentSceneManager : MonoBehaviour
     }
 
     // -------------------------------------------------------
-    // Szene laden (falls nötig)
+    // Szene laden (falls nÃ¶tig)
     // -------------------------------------------------------
 
     private IEnumerator LoadIfNotLoaded(string sceneName)
